@@ -1,0 +1,39 @@
+.cityContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: red;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: 1px solid rgb(227, 227, 227);
+    background: rgb(192, 192, 192);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* h-offset v-offset blur color */
+    padding: 10px;
+}
+.cityName{
+    color: rgb(72, 72, 72);
+    font-weight: bold;
+}
+.weatherIcons{
+    display: flex;
+    flex-direction: column;
+}
+.weatherImgTemp{
+    /* background: #000; */
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+    font-size: 2rem;
+}
+.weatherDescription p::first-letter{
+    text-transform: uppercase;
+}
+.weatherInfo{
+    /* background: #000; */
+    justify-content: space-around;
+    
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}

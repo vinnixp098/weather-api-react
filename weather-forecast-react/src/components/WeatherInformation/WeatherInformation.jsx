@@ -1,10 +1,10 @@
-// src/components/WeatherInformation/WeatherInformation.jsx
+import './WeatherInformation.css';
 import React from 'react';
 
 function WeatherInformation({ weather }) {
   // Verifique se o objeto `weather` contém os dados necessários
   if (!weather || !weather.weather || weather.weather.length === 0) {
-    return <div>Dados do tempo não disponíveis</div>;
+    return <div></div>;
   }
 
   // Extraia o primeiro item do array `weather.weather`
@@ -13,14 +13,32 @@ function WeatherInformation({ weather }) {
   const { name } = weather; // Nome da cidade
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <img
-        src={`https://openweathermap.org/img/wn/${icon}.png`}
-        alt={description}
-      />
-      <p>{description}</p> {/* Exibe a descrição do tempo */}
-      <p>{weather.main.feels_like}</p>
+    <div class="cityContainer">
+      <div className="cityName">
+        <h2>{name}</h2>
+      </div>
+      <div className="weatherIcons">
+        <div className="weatherImgTemp">
+          <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Icone do tempo" />
+          <p>{Math.round(weather.main.feels_like)}°C</p>
+        </div>
+        <div className="weatherDescription">
+          <p>{description}</p>
+        </div>
+      </div>
+      <div className="weatherInfo">
+        <p>
+          Sensação térmica: {Math.round(weather.main.feels_like)}°C
+        </p>
+        <p>
+          Pressão: {weather.main.pressure} hPa
+        </p>
+        <p>
+          Humidade: {weather.main.humidity}%
+        </p>
+      </div>
+
+
     </div>
   );
 }
